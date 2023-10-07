@@ -1,0 +1,39 @@
+```
+<!DOCTYPE html>
+<html>
+<head>
+	<title>HTML Chat Uygulaması</title>
+</head>
+<body>
+	<h1>HTML Chat Uygulaması</h1>
+	<div id="chat-container"></div>
+	<form id="message-form">
+		<input type="text" id="message-input" placeholder="Mesajınızı buraya yazın">
+		<button type="submit">Gönder</button>
+	</form>
+	<script>
+		// Chat kutusu elemanı
+		const chatContainer = document.getElementById('chat-container');
+		// Mesaj gönderme formu elemanı
+		const messageForm = document.getElementById('message-form');
+		// Mesaj giriş kutusu elemanı
+		const messageInput = document.getElementById('message-input');
+		
+		// Mesajı ekleme fonksiyonu
+		function addMessage(message) {
+			const p = document.createElement('p');
+			p.textContent = message;
+			chatContainer.appendChild(p);
+		}
+		
+		// Mesaj gönderme formu event listener'ı
+		messageForm.addEventListener('submit', e => {
+			e.preventDefault();
+			const message = messageInput.value;
+			addMessage(message);
+			messageInput.value = '';
+		});
+	</script>
+</body>
+</html>
+```
